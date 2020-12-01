@@ -37,3 +37,5 @@ import {
 \end{document}
 ```
 와 같다.
+
+여기서 알 수 있는 한가지 더는 바로 vesti는 따로 `\end{document}`가 없다는 점이다. 하지만 컴파일된 LaTeX 코드에는 올바르게 `\end{document}`가 들어있다는 것이다. 이러한 문법 덕분에 코드를 써내려갈 적에 맨 밑에 있던 걸리적거리는 `\end{document}`를 보지 않아도 된다는 것이다.

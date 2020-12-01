@@ -331,6 +331,7 @@ import {
 \end{document}
 </code></pre>
 <p>와 같다.</p>
+<p>여기서 알 수 있는 한가지 더는 바로 vesti는 따로 <code>\end{document}</code>가 없다는 점이다. 하지만 컴파일된 LaTeX 코드에는 올바르게 <code>\end{document}</code>가 들어있다는 것이다. 이러한 문법 덕분에 코드를 써내려갈 적에 맨 밑에 있던 걸리적거리는 <code>\end{document}</code>를 보지 않아도 된다는 것이다.</p>
 
                     </main>
 
@@ -353,6 +354,21 @@ import {
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         
