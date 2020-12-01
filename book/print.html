@@ -1,0 +1,395 @@
+<!DOCTYPE HTML>
+<html lang="ko" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Vesti Documentation</title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Vesti 언어에 대하여</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Vesti 설치법</a></li><li class="chapter-item expanded "><a href="Chapter3/chapter_3.html"><strong aria-hidden="true">3.</strong> Vesti 문법</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Chapter3/about_documentclass.html"><strong aria-hidden="true">3.1.</strong> documentclass 작성</a></li><li class="chapter-item expanded "><a href="Chapter3/about_usepackages.html"><strong aria-hidden="true">3.2.</strong> usepackage 작성</a></li><li class="chapter-item expanded "><a href="Chapter3/about_comment.html"><strong aria-hidden="true">3.3.</strong> 코맨트에 대하여</a></li><li class="chapter-item expanded "><a href="Chapter3/document_keyword.html"><strong aria-hidden="true">3.4.</strong> document 키워드</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Vesti Documentation</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#vesti-언어에-대하여" id="vesti-언어에-대하여">Vesti 언어에 대하여</a></h1>
+<p>보통 문서를 만든다고 한다면 적어도 필자는 LaTeX을 필수적으로 사용한다.
+또한 적어도 필자는 LaTeX를 엄청 잘 치지는 않지만 그렇다고 엄청 못치는 편은 아니라고 생각한다. 하지만 LaTeX을 쓰면서 느낀점은 문법이 많이 인체공학적이지 않다는 것이다.
+다음 코드를 먼저 한번 보도록 해보자.</p>
+<pre><code class="language-latex">\documentclass[twocolumn]{article}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{array}
+\usepackage{tikz}
+
+\title{Test document}
+\article{John Doe}
+\date{\today}
+
+\begin{document}
+This is a plain \LaTeX\ document.
+\begin{center}
+    \begin{minipage}{0.4\textwidth}
+        This is a plain \LaTeX\ document.
+    \end{minipage}
+    \hspace{1pc}
+    \begin{minipage}{0.4\textwidth}
+        This is a plain \LaTeX\ document.
+    \end{minipage}
+\end{center}
+\end{document}
+</code></pre>
+<p>아주 전형적인 코드이다. 평소 LaTeX만 쓴 사람이라면 그냥 자연스럽게 칠 것인데 스니펫(snippet)없이는 환경을 일일히 쓰는 것이 여간 귀찮은 일이 아니다.</p>
+<p><code>vesti</code>는 이를 조금 더 쉽게 쓰기 위하여 고안한 문법이다. 대체적으로 LaTeX 문법을 가져왔지만 몇몇 경우를 조금 더 쓰기 쉽게 만들었다. 아래는 <code>vesti</code> 코드로 위의 LaTeX 코드와 같은 코드를 적은 것이다.</p>
+<pre><code>docclass article (twocolumn)
+import { amsmath, amsthm, amssymb, array, tikz }
+
+#+#
+\title{Test Document}
+\article{John Doe}
+\date{\today}
+#+#
+
+document
+This is a plain \LaTeX\ document.
+begenv center
+    begenv minipage {0.4\textwidth}
+        This is a plain \LaTeX\ document.
+    endenv
+    \hspace{1pc}
+    begenv minipage {0.4\textwidth}
+        This is a plain \LaTeX\ document.
+    endenv
+endenv
+</code></pre>
+<p>Vesti의 첫 번째 목적은 기존 LaTeX에서의 몇몇 문법을 개량하여 보다 쓰기 쉽게 만들고자 하는 것이며, 두 번째 목적은 macro라는 개념을 넣어 보다 쉽게 문서를 만들 수 있게 하는 것이다.</p>
+<p>현재의 vesti는 아직 베타버전에 머물러있다. 기본적인 번역은 되지만 예상치 못한 버그들이 있을 수 있으므로 착오 없길 바란다. 또한 아직은 macro가 없다. 따라서 LaTeX command나 environment를 만들고자 한다면 <a href="./chapter_2.html">여기</a>를 보길 바란다.</p>
+<h1><a class="header" href="#vesti-설치" id="vesti-설치">Vesti 설치</a></h1>
+<h2><a class="header" href="#참고" id="참고">참고</a></h2>
+<p>현재 <code>vesti</code>는 github에 저장되어 있다. 따라서 아직은 설치하는 방법이 github에서 직접 가져오는 것 밖에는 없다.
+또한 아직 베타버전이므로 따로 실행파일을 만들어 두지는 않았다. 따라서 수동으로 컴파일을 해 주어야 한다.
+이 때, <code>cargo</code>라는 프로그램을 이용해야 하는데 아직 이 프로그램이 설치되지 않았다면 각 OS에 맞게 설치를 하면 될 것이다.</p>
+<h2><a class="header" href="#unix-기반-os-mac-os-or-linux" id="unix-기반-os-mac-os-or-linux">Unix 기반 OS (Mac OS or Linux)</a></h2>
+<h3><a class="header" href="#1-cargo-설치" id="1-cargo-설치">1. <code>cargo</code> 설치</a></h3>
+<p>터미널을 열고, 아래와 같이 입력을 하면 된다.</p>
+<pre><code class="language-bash">curl https://sh.rustup.rs -sSf | sh
+</code></pre>
+<h3><a class="header" href="#2-vesti-설치" id="2-vesti-설치">2. <code>vesti</code> 설치</a></h3>
+<p>터미널에 아래의 코드를 입력하면 된다.</p>
+<pre><code class="language-bash">git clone https://github.com/e0328eric/vesti.git
+cd vesti
+cargo install --path .
+</code></pre>
+<h2><a class="header" href="#windows" id="windows">Windows</a></h2>
+<h3><a class="header" href="#1-cargo-설치-1" id="1-cargo-설치-1">1. <code>cargo</code> 설치</a></h3>
+<p><a href="https://static.rust-lang.org/rustup/dist/i686-pc-windows-gnu/rustup-init.exe">여기</a>를 눌러서 파일을 받고, 이를 설치하면 된다.</p>
+<h3><a class="header" href="#2-vesti-다운로드" id="2-vesti-다운로드">2. <code>vesti</code> 다운로드</a></h3>
+<p>cmd나 powershell에서 다음 코드를 입력하면 된다.</p>
+<pre><code class="language-bash">git clone https://github.com/e0328eric/vesti.git
+cd vesti
+cargo install --path .
+</code></pre>
+<h1><a class="header" href="#vesti-문법" id="vesti-문법">Vesti 문법</a></h1>
+<p>이번 장에서는 vesti 언어의 문법들을 모두 볼 것이다.
+기본적으로는 LaTeX의 문법과 매우 유사하기 때문에 어렵지 않게 습득을 할 수 있을 것이다.</p>
+<h1><a class="header" href="#documentclass" id="documentclass">Documentclass</a></h1>
+<p>LaTeX에서는 <code>\documentclass</code>라는 것을 사용하여 지정을 한다. Vesti에서는 이와 비슷한 키워드를 이용하여 클래스를 지정한다. 문법은 아래와 같다.</p>
+<pre><code>docclass 클래스 (옵션, 옵션, 옵션)
+</code></pre>
+<p>모든 클래스가 옵션이 있는 것은 아니다. 이 경우에는 괄호부분을 통채로 없애주면 된다.
+따라서 article 클래스로 시작하고 싶으면</p>
+<pre><code>docclass article
+</code></pre>
+<p>을 입력하면 된다. 만일 coprime<sup class="footnote-reference"><a href="#1">1</a></sup> 클래스를 아래와 같이</p>
+<pre><code>\documentclass[item, korean, tikz]{coprime}
+</code></pre>
+<p>로 이용하고 싶으면 단순히</p>
+<pre><code>docclass coprime (item, korean, tikz)
+</code></pre>
+<p>라고 쓰면 된다.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>필자가 따로 만들어둔 클래스로 github에 가면 볼 수 있다.</p>
+</div>
+<h1><a class="header" href="#usepackages" id="usepackages">Usepackages</a></h1>
+<p>LaTeX은 <code>\usepackage</code>라는 것으로 패키지들을 넣는다. 하지만 이것으로는 옵션이 있는 패키지들을 한번에 묶을 수 없다.
+Vesti에서는 <code>import</code>라는 키워드로 패키지를 넣는다. 여기서, 패키지를 넣을 때, 다음 세 가지 문법 모두 허용한다.</p>
+<pre><code># 조만간 언급을 하겠다만 vesti에서의 주석은 #으로 시작한다.
+# 첫 번째 방법 (패키지의 옵션이 없는 경우)
+import amsmath
+
+# 두 번째 방법 (패키지의 옵션이 있는 경우)
+import geometry (a4paper, margin = 0.4\textwidth)
+
+# 마지막 방법 (일반인 경우: 패키지들이 많을 때)
+import {
+    amsmath, amsthm, amssymb,
+    tikz,
+    geometry (a4paper, margin = 0.4\textwidth),
+    array
+}
+</code></pre>
+<p>물론 여러 패키지들을 불러올 때 어느 것을 쓰더라도 상관이 없다. 다만 마지막 방법을 이용하여 모든 패키지들을 한번에 관리하는 것을 추천한다.</p>
+<h1><a class="header" href="#코맨트에-대하여" id="코맨트에-대하여">코맨트에 대하여</a></h1>
+<p>Vesti언어에는 크게 두 종류의 코맨트가 있다. 보통 코맨트는 <code>#</code>을 이용한다. 다음과 같이 말이다.</p>
+<pre><code># 이 다음부터는 실제 LaTeX 코드에는 들어가지 않는다.
+하지만 이 부분은 실제로 LaTeX 코드에 들어간다.
+# 다시 이 부분은 들어가지 않는다.
+</code></pre>
+<p>만일 여러줄을 코맨트하고 싶을 때에는 물론 일일히 앞에 <code>#</code>을 붙여도 되지만, 아래와 같이 입력을 해도 된다.</p>
+<pre><code>#*
+위처럼 넣게 되면 이 다음부터는 쭉
+실제 LaTeX 코드에
+반영이 되지
+않는다.
+*#
+이제 이 부분은 실제 코드에 들어간다.
+</code></pre>
+<p>만일 실제 #을 출력하고 싶다면 <code>\#</code>을 넣으면 된다. aaa</p>
+<h1><a class="header" href="#document-키워드" id="document-키워드">Document 키워드</a></h1>
+<p>Vesti에 있는 키워드 중 우리는 앞에서 <code>docclass</code>와 <code>import</code>키워드를 보았다.
+이제 가장 중요한 키워드인 <code>document</code> 키워드에 대하여 알아보도록 하자.</p>
+<p>LaTeX에서 <code>\begin{document}</code>는 문서의 시작을 알리는 부분이다. 저 명령어를 기준으로 윗부분은 보통 문서의 설정들을 넣고, 아래 부분은 실제 문서 내용을 넣는다. 아래 예시로 더 쉽게 알 수 있다.</p>
+<pre><code class="language-latex">\documentclass{article}
+
+% 가장 중요한 부분으로 이 키워드가 없으면 LaTeX은 에러를 뱉는다.
+% 거의 대부분 (그 몇몇 예외는 신경쓰지 않아도 된다.)
+\begin{document}
+This is a \LaTeX.
+\end{document}
+</code></pre>
+<p>Vesti에서 <code>document</code>가 바로 LaTeX에서의 <code>\begin{document}</code>와 동일하다. Vesti의 경우에는 <code>document</code>키워드 윗쪽으로는 문서의 설정들을 넣고, 아래로는 실제 문서 내용을 집어 넣도록 되어있다. 이 때, <code>docclass</code>, <code>import</code>, <code>document</code>키워드를 <code>document</code>키워드 아래에 적게 될 경우, 키워드로 작동하지 않고, 단순히 그 단어들이 된다.</p>
+<p>예를 들어 아래의 vesti 코드</p>
+<pre><code>docclass article
+document
+docclass article
+import {
+    amsmath,
+    tikz
+}
+</code></pre>
+<p>는 LaTeX 코드</p>
+<pre><code>\documentclass{article}
+\begin{doccument}
+docclass article
+import {
+    amsmath,
+    tikz
+}
+
+\end{document}
+</code></pre>
+<p>와 같다.</p>
+<p>여기서 알 수 있는 한가지 더는 바로 vesti는 따로 <code>\end{document}</code>가 없다는 점이다. 하지만 컴파일된 LaTeX 코드에는 올바르게 <code>\end{document}</code>가 들어있다는 것이다. 이러한 문법 덕분에 코드를 써내려갈 적에 맨 밑에 있던 걸리적거리는 <code>\end{document}</code>를 보지 않아도 된다는 것이다.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
