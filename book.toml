@@ -1,0 +1,9 @@
+[book]
+authors = ["Almagest"]
+language = "ko"
+multilingual = true
+src = "src"
+title = "Vesti Documentation"
+
+[build]
+build-dir = "../../vesti-manual"
