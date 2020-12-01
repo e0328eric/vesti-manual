@@ -1,0 +1,6 @@
+[book]
+authors = ["Almagest"]
+language = "ko"
+multilingual = false
+src = "src"
+title = "Vesti Documentation"

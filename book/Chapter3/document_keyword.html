@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Vesti 언어에 대하여 - Vesti Documentation</title>
+        <title>document 키워드 - Vesti Documentation</title>
         
         
 
@@ -18,28 +18,28 @@
         <meta name="theme-color" content="#ffffff" />
 
         
-        <link rel="icon" href="favicon.svg">
+        <link rel="icon" href="../favicon.svg">
         
         
-        <link rel="shortcut icon" href="favicon.png">
+        <link rel="shortcut icon" href="../favicon.png">
         
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
         
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="stylesheet" href="../css/print.css" media="print">
         
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
         
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
         
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         
@@ -49,7 +49,7 @@
     <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
-            var path_to_root = "";
+            var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Vesti 언어에 대하여</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Vesti 설치법</a></li><li class="chapter-item expanded "><a href="Chapter3/chapter_3.html"><strong aria-hidden="true">3.</strong> Vesti 문법</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Chapter3/about_documentclass.html"><strong aria-hidden="true">3.1.</strong> documentclass 작성</a></li><li class="chapter-item expanded "><a href="Chapter3/about_usepackages.html"><strong aria-hidden="true">3.2.</strong> usepackage 작성</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../chapter_1.html"><strong aria-hidden="true">1.</strong> Vesti 언어에 대하여</a></li><li class="chapter-item expanded "><a href="../chapter_2.html"><strong aria-hidden="true">2.</strong> Vesti 설치법</a></li><li class="chapter-item expanded "><a href="../Chapter3/chapter_3.html"><strong aria-hidden="true">3.</strong> Vesti 문법</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Chapter3/about_documentclass.html"><strong aria-hidden="true">3.1.</strong> documentclass 작성</a></li><li class="chapter-item expanded "><a href="../Chapter3/about_usepackages.html"><strong aria-hidden="true">3.2.</strong> usepackage 작성</a></li><li class="chapter-item expanded "><a href="../Chapter3/about_comment.html"><strong aria-hidden="true">3.3.</strong> 코맨트에 대하여</a></li><li class="chapter-item expanded "><a href="../Chapter3/document_keyword.html" class="active"><strong aria-hidden="true">3.4.</strong> document 키워드</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -131,7 +131,7 @@
 
                     <div class="right-buttons">
                         
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
                         
@@ -163,68 +163,51 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#vesti-언어에-대하여" id="vesti-언어에-대하여">Vesti 언어에 대하여</a></h1>
-<p>보통 문서를 만든다고 한다면 적어도 필자는 LaTeX을 필수적으로 사용한다.
-또한 적어도 필자는 LaTeX를 엄청 잘 치지는 않지만 그렇다고 엄청 못치는 편은 아니라고 생각한다. 하지만 LaTeX을 쓰면서 느낀점은 문법이 많이 인체공학적이지 않다는 것이다.
-다음 코드를 먼저 한번 보도록 해보자.</p>
-<pre><code class="language-latex">\documentclass[twocolumn]{article}
-\usepackage{amsmath, amsthm, amssymb}
-\usepackage{array}
-\usepackage{tikz}
+                        <h1><a class="header" href="#document-키워드" id="document-키워드">Document 키워드</a></h1>
+<p>Vesti에 있는 키워드 중 우리는 앞에서 <code>docclass</code>와 <code>import</code>키워드를 보았다.
+이제 가장 중요한 키워드인 <code>document</code> 키워드에 대하여 알아보도록 하자.</p>
+<p>LaTeX에서 <code>\begin{document}</code>는 문서의 시작을 알리는 부분이다. 저 명령어를 기준으로 윗부분은 보통 문서의 설정들을 넣고, 아래 부분은 실제 문서 내용을 넣는다. 아래 예시로 더 쉽게 알 수 있다.</p>
+<pre><code class="language-latex">\documentclass{article}
 
-\title{Test document}
-\article{John Doe}
-\date{\today}
-
+% 가장 중요한 부분으로 이 키워드가 없으면 LaTeX은 에러를 뱉는다.
+% 거의 대부분 (그 몇몇 예외는 신경쓰지 않아도 된다.)
 \begin{document}
-This is a plain \LaTeX\ document.
-\begin{center}
-    \begin{minipage}{0.4\textwidth}
-        This is a plain \LaTeX\ document.
-    \end{minipage}
-    \hspace{1pc}
-    \begin{minipage}{0.4\textwidth}
-        This is a plain \LaTeX\ document.
-    \end{minipage}
-\end{center}
+This is a \LaTeX.
 \end{document}
 </code></pre>
-<p>아주 전형적인 코드이다. 평소 LaTeX만 쓴 사람이라면 그냥 자연스럽게 칠 것인데 스니펫(snippet)없이는 환경을 일일히 쓰는 것이 여간 귀찮은 일이 아니다.</p>
-<p><code>vesti</code>는 이를 조금 더 쉽게 쓰기 위하여 고안한 문법이다. 대체적으로 LaTeX 문법을 가져왔지만 몇몇 경우를 조금 더 쓰기 쉽게 만들었다. 아래는 <code>vesti</code> 코드로 위의 LaTeX 코드와 같은 코드를 적은 것이다.</p>
-<pre><code>docclass article (twocolumn)
-import { amsmath, amsthm, amssymb, array, tikz }
-
-#+#
-\title{Test Document}
-\article{John Doe}
-\date{\today}\/
-#+#
-
+<p>Vesti에서 <code>document</code>가 바로 LaTeX에서의 <code>\begin{document}</code>와 동일하다. Vesti의 경우에는 <code>document</code>키워드 윗쪽으로는 문서의 설정들을 넣고, 아래로는 실제 문서 내용을 집어 넣도록 되어있다. 이 때, <code>docclass</code>, <code>import</code>, <code>document</code>키워드를 <code>document</code>키워드 아래에 적게 될 경우, 키워드로 작동하지 않고, 단순히 그 단어들이 된다.</p>
+<p>예를 들어 아래의 vesti 코드</p>
+<pre><code>docclass article
 document
-This is a plain \LaTeX\ document.
-begenv center
-    begenv minipage {0.4\textwidth}
-        This is a plain \LaTeX\ document.
-    endenv
-    \hspace{1pc}
-    begenv minipage {0.4\textwidth}
-        This is a plain \LaTeX\ document.
-    endenv
-endenv
+docclass article
+import {
+    amsmath,
+    tikz
+}
 </code></pre>
-<p>Vesti의 첫 번째 목적은 기존 LaTeX에서의 몇몇 문법을 개량하여 보다 쓰기 쉽게 만들고자 하는 것이며, 두 번째 목적은 macro라는 개념을 넣어 보다 쉽게 문서를 만들 수 있게 하는 것이다.</p>
-<p>현재의 vesti는 아직 베타버전에 머물러있다. 기본적인 번역은 되지만 예상치 못한 버그들이 있을 수 있으므로 착오 없길 바란다. 또한 아직은 macro가 없다. 따라서 LaTeX command나 environment를 만들고자 한다면 <a href="./chapter_2.html">여기</a>를 보길 바란다.</p>
+<p>는 LaTeX 코드</p>
+<pre><code>\documentclass{article}
+\begin{doccument}
+docclass article
+import {
+    amsmath,
+    tikz
+}
+
+\end{document}
+</code></pre>
+<p>와 같다.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-
-                        
-                            <a rel="next" href="chapter_2.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                            <a rel="prev" href="../Chapter3/about_comment.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
                             </a>
+                        
+
                         
 
                         <div style="clear: both"></div>
@@ -234,11 +217,11 @@ endenv
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-
-                
-                    <a rel="next" href="chapter_2.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                    <a rel="prev" href="../Chapter3/about_comment.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
                     </a>
+                
+
                 
             </nav>
 
@@ -259,14 +242,14 @@ endenv
         
 
         
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
         
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         
