@@ -31,15 +31,16 @@ This is a plain \LaTeX\ document.
 아주 전형적인 코드이다. 평소 LaTeX만 쓴 사람이라면 그냥 자연스럽게 칠 것인데 스니펫(snippet)없이는 환경을 일일히 쓰는 것이 여간 귀찮은 일이 아니다.
 
 `vesti`는 이를 조금 더 쉽게 쓰기 위하여 고안한 문법이다. 대체적으로 LaTeX 문법을 가져왔지만 몇몇 경우를 조금 더 쓰기 쉽게 만들었다. 아래는 `vesti` 코드로 위의 LaTeX 코드와 같은 코드를 적은 것이다.
+
 ```
 docclass article (twocolumn)
 import { amsmath, amsthm, amssymb, array, tikz }
 
-#+#
+##+
 \title{Test Document}
 \article{John Doe}
 \date{\today}
-#+#
++##
 
 document
 This is a plain \LaTeX\ document.
@@ -53,6 +54,7 @@ begenv center
     endenv
 endenv
 ```
+
 Vesti의 첫 번째 목적은 기존 LaTeX에서의 몇몇 문법을 개량하여 보다 쓰기 쉽게 만들고자 하는 것이며, 두 번째 목적은 macro라는 개념을 넣어 보다 쉽게 문서를 만들 수 있게 하는 것이다.
 
 현재의 vesti는 아직 베타버전에 머물러있다. 기본적인 번역은 되지만 예상치 못한 버그들이 있을 수 있으므로 착오 없길 바란다. 또한 아직은 macro가 없다. 따라서 LaTeX command나 environment를 만들고자 한다면 [여기](./chapter_2.md)를 보길 바란다.
