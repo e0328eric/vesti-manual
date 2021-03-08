@@ -165,7 +165,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#vesti-언어에-대하여" id="vesti-언어에-대하여">Vesti 언어에 대하여</a></h1>
+                        <h1 id="vesti-언어에-대하여"><a class="header" href="#vesti-언어에-대하여">Vesti 언어에 대하여</a></h1>
 <p>보통 문서를 만든다고 한다면 적어도 필자는 LaTeX을 필수적으로 사용한다.
 또한 적어도 필자는 LaTeX를 엄청 잘 치지는 않지만 그렇다고 엄청 못치는 편은 아니라고 생각한다. 하지만 LaTeX을 쓰면서 느낀점은 문법이 많이 인체공학적이지 않다는 것이다.
 다음 코드를 먼저 한번 보도록 해보자.</p>
@@ -216,35 +216,14 @@ endenv
 </code></pre>
 <p>Vesti의 첫 번째 목적은 기존 LaTeX에서의 몇몇 문법을 개량하여 보다 쓰기 쉽게 만들고자 하는 것이며, 두 번째 목적은 macro라는 개념을 넣어 보다 쉽게 문서를 만들 수 있게 하는 것이다.</p>
 <p>현재의 vesti는 아직 베타버전에 머물러있다. 기본적인 번역은 되지만 예상치 못한 버그들이 있을 수 있으므로 착오 없길 바란다. 또한 아직은 macro가 없다. 따라서 LaTeX command나 environment를 만들고자 한다면 <a href="./chapter_2.html">여기</a>를 보길 바란다.</p>
-<h1><a class="header" href="#vesti-설치" id="vesti-설치">Vesti 설치</a></h1>
-<h2><a class="header" href="#참고" id="참고">참고</a></h2>
+<h1 id="vesti-설치"><a class="header" href="#vesti-설치">Vesti 설치</a></h1>
+<h2 id="참고"><a class="header" href="#참고">참고</a></h2>
 <p>현재 <code>vesti</code>는 github에 저장되어 있다. 따라서 아직은 설치하는 방법이 github에서 직접 가져오는 것 밖에는 없다.
-또한 아직 베타버전이므로 따로 실행파일을 만들어 두지는 않았다. 따라서 수동으로 컴파일을 해 주어야 한다.
-이 때, <code>cargo</code>라는 프로그램을 이용해야 하는데 아직 이 프로그램이 설치되지 않았다면 각 OS에 맞게 설치를 하면 될 것이다.</p>
-<h2><a class="header" href="#unix-기반-os-mac-os-or-linux" id="unix-기반-os-mac-os-or-linux">Unix 기반 OS (Mac OS or Linux)</a></h2>
-<h3><a class="header" href="#1-cargo-설치" id="1-cargo-설치">1. <code>cargo</code> 설치</a></h3>
-<p>터미널을 열고, 아래와 같이 입력을 하면 된다.</p>
-<pre><code class="language-bash">curl https://sh.rustup.rs -sSf | sh
-</code></pre>
-<h3><a class="header" href="#2-vesti-설치" id="2-vesti-설치">2. <code>vesti</code> 설치</a></h3>
-<p>터미널에 아래의 코드를 입력하면 된다.</p>
-<pre><code class="language-bash">git clone https://github.com/e0328eric/vesti.git
-cd vesti
-cargo install --path .
-</code></pre>
-<h2><a class="header" href="#windows" id="windows">Windows</a></h2>
-<h3><a class="header" href="#1-cargo-설치-1" id="1-cargo-설치-1">1. <code>cargo</code> 설치</a></h3>
-<p><a href="https://static.rust-lang.org/rustup/dist/i686-pc-windows-gnu/rustup-init.exe">여기</a>를 눌러서 파일을 받고, 이를 설치하면 된다.</p>
-<h3><a class="header" href="#2-vesti-다운로드" id="2-vesti-다운로드">2. <code>vesti</code> 다운로드</a></h3>
-<p>cmd나 powershell에서 다음 코드를 입력하면 된다.</p>
-<pre><code class="language-bash">git clone https://github.com/e0328eric/vesti.git
-cd vesti
-cargo install --path .
-</code></pre>
-<h1><a class="header" href="#vesti-문법" id="vesti-문법">Vesti 문법</a></h1>
+또한 아직 베타버전이므로 따로 실행파일을 만들어 두지는 않았다. 따라서 수동으로 컴파일을 해 주어야 한다.</p>
+<h1 id="vesti-문법"><a class="header" href="#vesti-문법">Vesti 문법</a></h1>
 <p>이번 장에서는 vesti 언어의 문법들을 모두 볼 것이다.
 기본적으로는 LaTeX의 문법과 매우 유사하기 때문에 어렵지 않게 습득을 할 수 있을 것이다.</p>
-<h1><a class="header" href="#documentclass" id="documentclass">Documentclass</a></h1>
+<h1 id="documentclass"><a class="header" href="#documentclass">Documentclass</a></h1>
 <p>LaTeX에서는 <code>\documentclass</code>라는 것을 사용하여 지정을 한다. Vesti에서는 이와 비슷한 키워드를 이용하여 클래스를 지정한다. 문법은 아래와 같다.</p>
 <pre><code>docclass 클래스 (옵션, 옵션, 옵션)
 </code></pre>
@@ -262,7 +241,7 @@ cargo install --path .
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
 <p>필자가 따로 만들어둔 클래스로 github에 가면 볼 수 있다.</p>
 </div>
-<h1><a class="header" href="#usepackages" id="usepackages">Usepackages</a></h1>
+<h1 id="usepackages"><a class="header" href="#usepackages">Usepackages</a></h1>
 <p>LaTeX은 <code>\usepackage</code>라는 것으로 패키지들을 넣는다. 하지만 이것으로는 옵션이 있는 패키지들을 한번에 묶을 수 없다.
 Vesti에서는 <code>import</code>라는 키워드로 패키지를 넣는다. 여기서, 패키지를 넣을 때, 다음 세 가지 문법 모두 허용한다.</p>
 <pre><code># 조만간 언급을 하겠다만 vesti에서의 주석은 #으로 시작한다.
@@ -281,7 +260,7 @@ import {
 }
 </code></pre>
 <p>물론 여러 패키지들을 불러올 때 어느 것을 쓰더라도 상관이 없다. 다만 마지막 방법을 이용하여 모든 패키지들을 한번에 관리하는 것을 추천한다.</p>
-<h1><a class="header" href="#코맨트에-대하여" id="코맨트에-대하여">코맨트에 대하여</a></h1>
+<h1 id="코맨트에-대하여"><a class="header" href="#코맨트에-대하여">코맨트에 대하여</a></h1>
 <p>Vesti언어에는 크게 두 종류의 코맨트가 있다. 보통 코맨트는 <code>#</code>을 이용한다. 다음과 같이 말이다.</p>
 <pre><code># 이 다음부터는 실제 LaTeX 코드에는 들어가지 않는다.
 하지만 이 부분은 실제로 LaTeX 코드에 들어간다.
@@ -296,8 +275,10 @@ import {
 *#
 이제 이 부분은 실제 코드에 들어간다.
 </code></pre>
-<p>만일 실제 #을 출력하고 싶다면 <code>\#</code>을 넣으면 된다.</p>
-<h1><a class="header" href="#document-키워드" id="document-키워드">Document 키워드</a></h1>
+<p>LaTeX에서는 일반적으로 <code>#</code>은 명령어나 낮은 수준의 TeX 표를 만들 때에 쓴다.
+그러한 <code>#</code>은 <code>\?</code>으로 만들 수 있고,
+만일 LaTeX에서 정말로 <code>\#</code>을 출력하고 싶다면 vesti에서 <code>\#</code>을 넣으면 된다.</p>
+<h1 id="document-키워드"><a class="header" href="#document-키워드">Document 키워드</a></h1>
 <p>Vesti에 있는 키워드 중 우리는 앞에서 <code>docclass</code>와 <code>import</code>키워드를 보았다.
 이제 가장 중요한 키워드인 <code>document</code> 키워드에 대하여 알아보도록 하자.</p>
 <p>LaTeX에서 <code>\begin{document}</code>는 문서의 시작을 알리는 부분이다. 저 명령어를 기준으로 윗부분은 보통 문서의 설정들을 넣고, 아래 부분은 실제 문서 내용을 넣는다. 아래 예시로 더 쉽게 알 수 있다.</p>
