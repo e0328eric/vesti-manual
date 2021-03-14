@@ -1,5 +1,10 @@
 docclass article
-import #-import-# (ast, import, foo)
+import {
+    amsmath amsthm amssymb
+    tikz
+    geometry (a4paper, margin = 0.4\textwidth)
+    array
+}
 document
 docclass article
 import { amsmath tikz }
