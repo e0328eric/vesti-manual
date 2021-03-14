@@ -17,23 +17,19 @@ Vesti에서 `document`가 바로 LaTeX에서의 `\begin{document}`와 동일하�
 예를 들어 아래의 vesti 코드
 ```
 docclass article
+import { amsmath tikz }
 document
 docclass article
-import {
-    amsmath,
-    tikz
-}
+import { amsmath tikz }
 ```
 는 LaTeX 코드
 ```
 \documentclass{article}
-\begin{doccument}
+\usepackage{amsmath}
+\usepackage{tikz}
+\begin{document}
 docclass article
-import {
-    amsmath,
-    tikz
-}
-
+import { amsmath tikz }
 \end{document}
 ```
 와 같다.

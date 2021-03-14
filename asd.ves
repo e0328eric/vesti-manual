@@ -1,0 +1,5 @@
+docclass article
+import #-import-# (ast, import, foo)
+document
+docclass article
+import { amsmath tikz }

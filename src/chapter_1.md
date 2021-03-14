@@ -5,19 +5,22 @@
 다음 코드를 먼저 한번 보도록 해보자.
 
 ```latex
-\documentclass[twocolumn]{article}
-\usepackage{amsmath, amsthm, amssymb}
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
 \usepackage{array}
 \usepackage{tikz}
 
-\title{Test document}
+\title{Test Document}
 \article{John Doe}
 \date{\today}
 
 \begin{document}
 This is a plain \LaTeX\ document.
+This works well!
 \begin{center}
-    \begin{minipage}{0.4\textwidth}
+    \begin{minipage}{.4\textwidth}
         This is a plain \LaTeX\ document.
     \end{minipage}
     \hspace{1pc}
@@ -25,6 +28,7 @@ This is a plain \LaTeX\ document.
         This is a plain \LaTeX\ document.
     \end{minipage}
 \end{center}
+
 \end{document}
 ```
 
@@ -34,13 +38,11 @@ This is a plain \LaTeX\ document.
 
 ```
 docclass article (twocolumn)
-import { amsmath, amsthm, amssymb, array, tikz }
+import { amsmath amsthm amssymb array tikz }
 
-##+
 \title{Test Document}
 \article{John Doe}
 \date{\today}
-+##
 
 document
 This is a plain \LaTeX\ document.
@@ -57,4 +59,4 @@ endenv
 
 Vesti의 첫 번째 목적은 기존 LaTeX에서의 몇몇 문법을 개량하여 보다 쓰기 쉽게 만들고자 하는 것이며, 두 번째 목적은 macro라는 개념을 넣어 보다 쉽게 문서를 만들 수 있게 하는 것이다.
 
-현재의 vesti는 아직 베타버전에 머물러있다. 기본적인 번역은 되지만 예상치 못한 버그들이 있을 수 있으므로 착오 없길 바란다. 또한 아직은 macro가 없다. 따라서 LaTeX command나 environment를 만들고자 한다면 [여기](./chapter_2.md)를 보길 바란다.
+현재의 vesti는 아직 알파버전에 머물러있다. 기본적인 번역은 되지만 예상치 못한 버그들이 있을 수 있으므로 착오 없길 바란다. 또한 아직은 macro가 존재하지 않는다.
