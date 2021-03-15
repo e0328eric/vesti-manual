@@ -5,7 +5,7 @@
 다음 코드를 먼저 한번 보도록 해보자.
 
 ```latex
-\documentclass{article}
+\documentclass[twocolumn]{article}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
@@ -18,9 +18,8 @@
 
 \begin{document}
 This is a plain \LaTeX\ document.
-This works well!
 \begin{center}
-    \begin{minipage}{.4\textwidth}
+    \begin{minipage}{0.4\textwidth}
         This is a plain \LaTeX\ document.
     \end{minipage}
     \hspace{1pc}
