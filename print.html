@@ -169,7 +169,7 @@
 <p>보통 문서를 만든다고 한다면 적어도 필자는 LaTeX을 필수적으로 사용한다.
 또한 적어도 필자는 LaTeX를 엄청 잘 치지는 않지만 그렇다고 엄청 못치는 편은 아니라고 생각한다. 하지만 LaTeX을 쓰면서 느낀점은 문법이 많이 인체공학적이지 않다는 것이다.
 다음 코드를 먼저 한번 보도록 해보자.</p>
-<pre><code class="language-latex">\documentclass{article}
+<pre><code class="language-latex">\documentclass[twocolumn]{article}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
@@ -182,9 +182,8 @@
 
 \begin{document}
 This is a plain \LaTeX\ document.
-This works well!
 \begin{center}
-    \begin{minipage}{.4\textwidth}
+    \begin{minipage}{0.4\textwidth}
         This is a plain \LaTeX\ document.
     \end{minipage}
     \hspace{1pc}
@@ -261,7 +260,19 @@ import {
     array
 }
 </code></pre>
-<p>물론 여러 패키지들을 불러올 때 어느 것을 쓰더라도 상관이 없다. 다만 마지막 방법을 이용하여 모든 패키지들을 한번에 관리하는 것을 추천한다.</p>
+<p>첫 번째 방법과 두 번째 방법은 예시만 보면 바로 알 수 있을 것 같아 설명을 생략하도록 하겠다.
+마지막 방법의 경우, <code>{</code>와  <code>}</code> 안에다가 패키지 이름들을 적으면 된다.
+이름들은 줄바꿈 또는 한칸 띄어쓰기로 구분한다. 예를 들어</p>
+<pre><code>import { foo bar }
+</code></pre>
+<p>의 경우는 아래와 같이 컴파일된다.</p>
+<pre><code class="language-latex">\usepackage{foo}
+\usepackage{bar}
+</code></pre>
+<p>이는 역시 vesti 코드로는 아래와 같이 입력해도 무방하다.</p>
+<pre><code>import foo
+import bar
+</code></pre>
 <h1 id="코맨트에-대하여"><a class="header" href="#코맨트에-대하여">코맨트에 대하여</a></h1>
 <p>Vesti언어에는 크게 두 종류의 코맨트가 있다. 보통 코맨트는 <code>#</code>을 이용한다. 다음과 같이 말이다.</p>
 <pre><code># 이 다음부터는 실제 LaTeX 코드에는 들어가지 않는다.
@@ -311,6 +322,7 @@ import { amsmath tikz }
 </code></pre>
 <p>와 같다.</p>
 <p>여기서 알 수 있는 한가지 더는 바로 vesti는 따로 <code>\end{document}</code>가 없다는 점이다. 하지만 컴파일된 LaTeX 코드에는 올바르게 <code>\end{document}</code>가 들어있다는 것이다. 이러한 문법 덕분에 코드를 써내려갈 적에 맨 밑에 있던 걸리적거리는 <code>\end{document}</code>를 보지 않아도 된다는 것이다.</p>
+<h1 id="raw-latex-문법을-입력하기"><a class="header" href="#raw-latex-문법을-입력하기">Raw LaTeX 문법을 입력하기</a></h1>
 <p>아무리 vesti가 레이텍 문법을 개선시켰다 하더라도 몇몇 특수한 상황이나
 vesti가 아직 그렇게 똑똑하게 파싱을 하지 못해서 잘못된 결과가 나올 수 있다.
 지금 이 문서를 쓰고 있는 시점 (2021/03/14)에서는 아직 LaTeX3문법을 호환하지 않아
