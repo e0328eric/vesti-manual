@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Vesti Documentation</title>
-        <meta name="robots" content="noindex">
+        <title>코맨트에 대하여 - Vesti Documentation</title>
 
 
         <!-- Custom HTML head -->
@@ -13,21 +12,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
@@ -36,7 +35,7 @@
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
-            var path_to_root = "";
+            var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
@@ -89,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> What is vesti language?</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> How to install?</a></li><li class="chapter-item expanded "><a href="Grammar/chapter_3.html"><strong aria-hidden="true">3.</strong> The Grammar of vesti</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Grammar/about_documentclass.html"><strong aria-hidden="true">3.1.</strong> documentclass 작성</a></li><li class="chapter-item expanded "><a href="Grammar/about_usepackages.html"><strong aria-hidden="true">3.2.</strong> usepackage 작성</a></li><li class="chapter-item expanded "><a href="Grammar/about_comment.html"><strong aria-hidden="true">3.3.</strong> 코맨트에 대하여</a></li><li class="chapter-item expanded "><a href="Grammar/document_keyword.html"><strong aria-hidden="true">3.4.</strong> document 키워드</a></li><li class="chapter-item expanded "><a href="Grammar/raw_latex.html"><strong aria-hidden="true">3.5.</strong> LaTeX코드를 넣기</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../chapter_1.html"><strong aria-hidden="true">1.</strong> What is vesti language?</a></li><li class="chapter-item expanded "><a href="../chapter_2.html"><strong aria-hidden="true">2.</strong> How to install?</a></li><li class="chapter-item expanded "><a href="../Grammar/chapter_3.html"><strong aria-hidden="true">3.</strong> The Grammar of vesti</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Grammar/about_documentclass.html"><strong aria-hidden="true">3.1.</strong> documentclass 작성</a></li><li class="chapter-item expanded "><a href="../Grammar/about_usepackages.html"><strong aria-hidden="true">3.2.</strong> usepackage 작성</a></li><li class="chapter-item expanded "><a href="../Grammar/about_comment.html" class="active"><strong aria-hidden="true">3.3.</strong> 코맨트에 대하여</a></li><li class="chapter-item expanded "><a href="../Grammar/document_keyword.html"><strong aria-hidden="true">3.4.</strong> document 키워드</a></li><li class="chapter-item expanded "><a href="../Grammar/raw_latex.html"><strong aria-hidden="true">3.5.</strong> LaTeX코드를 넣기</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -145,7 +144,7 @@
                     <h1 class="menu-title">Vesti Documentation</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
 
@@ -174,97 +173,19 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="what-is-vesti-language"><a class="header" href="#what-is-vesti-language">What is <code>vesti</code> language?</a></h1>
-<p>LaTeX is a popular typescripting language around the world. In particular, when
-one is writting a document with many mathematical equations, then LaTeX is the
-good choice. I personally, write every documents with LaTeX, and I love it.
-However, LaTeX has some drawbacks. The critical one which I think is that it
-uses <code>\begin{...}</code> and <code>\end{...}</code> pair to open and close an environment,
-respectively. This kind of grammar is quite tetious if there is no snippet, or
-autocompletion features.</p>
-<p>Here is a simple example of LaTeX document code:</p>
-<pre><code class="language-latex">\documentclass[twocolumn]{article}
-
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amssymb}
-\usepackage{array}
-\usepackage{tikz}
-
-\begin{document}
-This is a plain \LaTeX\ document.
-\begin{center}
-    \begin{minipage}{0.4\textwidth}
-        The minipage makes a box with width 0.4 textwidth.
-    \end{minipage}
-    \hskip 1pc
-    \begin{minipage}{0.4\textwidth}
-        The minipage makes a box with width 0.4 textwidth.
-    \end{minipage}
-\end{center}
-
-\end{document}
-</code></pre>
-<p>The purpose of <code>vesti</code> typescripting language is somewhat <em>replacement</em> of
-LaTeX. Below <code>vesti</code> code makes a same pdf as the above LaTeX code generated.</p>
-<pre><code>docclass article (twocolumn)
-
-importpkg {
-    amsmath,
-    amsthm,
-    amssymb,
-    array,
-    tikz,
-}
-
-startdoc
-
-This is a plain \LaTeX\ document.
-useenv center {
-    useenv minipage (0.4\textwidth) {
-        The minipage makes a box with width 0.4 textwidth.
-    }
-    \hskip 1pc
-    useenv minipage (0.4\textwidth) {
-        The minipage makes a box with width 0.4 textwidth.
-    }
-}
-</code></pre>
-<p>Here is the simple diagram how <code>vesti</code> works:
-<img src="./how_vesti_works.svg" alt="how-vesti-works" /></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="how-to-install"><a class="header" href="#how-to-install">How to install?</a></h1>
-<h2 id="prerequisite"><a class="header" href="#prerequisite">Prerequisite</a></h2>
-<p>The local machine where <code>vesti</code> is installed should have a <code>latex</code> to compile
-<code>vesti</code> into pdf. I explained the reason why <code>latex</code> is needed at the previous page.
-However, if you want to install with <code>tectonic</code> backend, you don't need to
-install <code>latex</code> in the local machine.</p>
-<h2 id="general-installation"><a class="header" href="#general-installation">General Installation</a></h2>
-<p>You can install vesti using <code>cargo</code>: a rust package manager.</p>
-<pre><code class="language-console">$ cargo install vesti
-</code></pre>
-<h2 id="using-tectonic-backend"><a class="header" href="#using-tectonic-backend">Using <code>tectonic</code> backend</a></h2>
-<p>Since <code>tectonic</code> itself requires several dependencies, you must check that all
-of the dependencies are installed. This link has a full list of
-<a href="https://tectonic-typesetting.github.io/book/latest/howto/build-tectonic/external-dep-install.html">dependencies</a>.</p>
-<p>After installing all dependencies, then run this command to install <code>vesti</code> with
-<code>tectonic</code> backend.</p>
-<pre><code class="language-console">$ cargo install --features=tectonic-backend vesti
-</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="the-grammar-of-vesti"><a class="header" href="#the-grammar-of-vesti">The Grammar of <code>vesti</code></a></h1>
-<p>The grammar of <code>vesti</code> is similar with LaTeX in general. However, unlike LaTeX,
-<code>vesti</code> has keywords to write a document more easily.</p>
-<p>Here is a full list of keywords (0.11.2-beta)</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="documentclass-작성"><a class="header" href="#documentclass-작성">documentclass 작성</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="usepackage-작성"><a class="header" href="#usepackage-작성">usepackage 작성</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="코맨트에-대하여"><a class="header" href="#코맨트에-대하여">코맨트에 대하여</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="document-키워드"><a class="header" href="#document-키워드">document 키워드</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="latex코드를-넣기"><a class="header" href="#latex코드를-넣기">LaTeX코드를 넣기</a></h1>
+                        <h1 id="코맨트에-대하여"><a class="header" href="#코맨트에-대하여">코맨트에 대하여</a></h1>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Grammar/about_usepackages.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
+                            <a rel="next prefetch" href="../Grammar/document_keyword.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -272,7 +193,13 @@ of the dependencies are installed. This link has a full list of
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Grammar/about_usepackages.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
+                    <a rel="next prefetch" href="../Grammar/document_keyword.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>
@@ -285,21 +212,16 @@ of the dependencies are installed. This link has a full list of
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
 
-        <script>
-        window.addEventListener('load', function() {
-            window.setTimeout(window.print, 100);
-        });
-        </script>
 
     </div>
     </body>
