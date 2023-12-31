@@ -1,4 +1,24 @@
-# Vesti 설치
-## 참고
-현재 `vesti`는 github에 저장되어 있다. 따라서 아직은 설치하는 방법이 github에서 직접 가져오는 것 밖에는 없다.
-또한 아직 베타버전이므로 따로 실행파일을 만들어 두지는 않았다. 따라서 수동으로 컴파일을 해 주어야 한다.
+# How to install?
+## Prerequisite
+The local machine where `vesti` is installed should have a `latex` to compile
+`vesti` into pdf. I explained the reason why `latex` is needed at the previous page.
+However, if you want to install with `tectonic` backend, you don't need to
+install `latex` in the local machine.
+
+## General Installation
+
+You can install vesti using `cargo`: a rust package manager.
+```console
+$ cargo install vesti
+```
+
+## Using `tectonic` backend
+Since `tectonic` itself requires several dependencies, you must check that all
+of the dependencies are installed. This link has a full list of
+[dependencies](https://tectonic-typesetting.github.io/book/latest/howto/build-tectonic/external-dep-install.html).
+
+After installing all dependencies, then run this command to install `vesti` with
+`tectonic` backend.
+```console
+$ cargo install --features=tectonic-backend vesti
+```

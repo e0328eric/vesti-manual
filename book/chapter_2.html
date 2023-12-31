@@ -1,40 +1,27 @@
 <!DOCTYPE HTML>
-<html lang="ko" class="sidebar-visible no-js light">
+<html lang="ko" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Vesti 설치법 - Vesti Documentation</title>
-        
-        
+        <title>How to install? - Vesti Documentation</title>
 
 
         <!-- Custom HTML head -->
         
-
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
-        
         <link rel="icon" href="favicon.svg">
-        
-        
         <link rel="shortcut icon" href="favicon.png">
-        
         <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
-        
         <link rel="stylesheet" href="css/print.css" media="print">
-        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        
         <link rel="stylesheet" href="fonts/fonts.css">
-        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
@@ -42,19 +29,18 @@
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
 
-        
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -70,79 +56,104 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
 
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Vesti 언어에 대하여</a></li><li class="chapter-item expanded "><a href="chapter_2.html" class="active"><strong aria-hidden="true">2.</strong> Vesti 설치법</a></li><li class="chapter-item expanded "><a href="Chapter3/chapter_3.html"><strong aria-hidden="true">3.</strong> Vesti 문법</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Chapter3/about_documentclass.html"><strong aria-hidden="true">3.1.</strong> documentclass 작성</a></li><li class="chapter-item expanded "><a href="Chapter3/about_usepackages.html"><strong aria-hidden="true">3.2.</strong> usepackage 작성</a></li><li class="chapter-item expanded "><a href="Chapter3/about_comment.html"><strong aria-hidden="true">3.3.</strong> 코맨트에 대하여</a></li><li class="chapter-item expanded "><a href="Chapter3/document_keyword.html"><strong aria-hidden="true">3.4.</strong> document 키워드</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> What is vesti language?</a></li><li class="chapter-item expanded "><a href="chapter_2.html" class="active"><strong aria-hidden="true">2.</strong> How to install?</a></li><li class="chapter-item expanded "><a href="Grammar/chapter_3.html"><strong aria-hidden="true">3.</strong> The Grammar of vesti</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Grammar/about_documentclass.html"><strong aria-hidden="true">3.1.</strong> documentclass 작성</a></li><li class="chapter-item expanded "><a href="Grammar/about_usepackages.html"><strong aria-hidden="true">3.2.</strong> usepackage 작성</a></li><li class="chapter-item expanded "><a href="Grammar/about_comment.html"><strong aria-hidden="true">3.3.</strong> 코맨트에 대하여</a></li><li class="chapter-item expanded "><a href="Grammar/document_keyword.html"><strong aria-hidden="true">3.4.</strong> document 키워드</a></li><li class="chapter-item expanded "><a href="Grammar/raw_latex.html"><strong aria-hidden="true">3.5.</strong> LaTeX코드를 넣기</a></li></ol></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
-                        
                     </div>
 
                     <h1 class="menu-title">Vesti Documentation</h1>
 
                     <div class="right-buttons">
-                        
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        
-                        
+
                     </div>
                 </div>
 
-                
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -150,10 +161,9 @@
                         </ul>
                     </div>
                 </div>
-                
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -163,47 +173,36 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#vesti-설치" id="vesti-설치">Vesti 설치</a></h1>
-<h2><a class="header" href="#참고" id="참고">참고</a></h2>
-<p>현재 <code>vesti</code>는 github에 저장되어 있다. 따라서 아직은 설치하는 방법이 github에서 직접 가져오는 것 밖에는 없다.
-또한 아직 베타버전이므로 따로 실행파일을 만들어 두지는 않았다. 따라서 수동으로 컴파일을 해 주어야 한다.
-이 때, <code>cargo</code>라는 프로그램을 이용해야 하는데 아직 이 프로그램이 설치되지 않았다면 각 OS에 맞게 설치를 하면 될 것이다.</p>
-<h2><a class="header" href="#unix-기반-os-mac-os-or-linux" id="unix-기반-os-mac-os-or-linux">Unix 기반 OS (Mac OS or Linux)</a></h2>
-<h3><a class="header" href="#1-cargo-설치" id="1-cargo-설치">1. <code>cargo</code> 설치</a></h3>
-<p>터미널을 열고, 아래와 같이 입력을 하면 된다.</p>
-<pre><code class="language-bash">curl https://sh.rustup.rs -sSf | sh
+                        <h1 id="how-to-install"><a class="header" href="#how-to-install">How to install?</a></h1>
+<h2 id="prerequisite"><a class="header" href="#prerequisite">Prerequisite</a></h2>
+<p>The local machine where <code>vesti</code> is installed should have a <code>latex</code> to compile
+<code>vesti</code> into pdf. I explained the reason why <code>latex</code> is needed at the previous page.
+However, if you want to install with <code>tectonic</code> backend, you don't need to
+install <code>latex</code> in the local machine.</p>
+<h2 id="general-installation"><a class="header" href="#general-installation">General Installation</a></h2>
+<p>You can install vesti using <code>cargo</code>: a rust package manager.</p>
+<pre><code class="language-console">$ cargo install vesti
 </code></pre>
-<h3><a class="header" href="#2-vesti-설치" id="2-vesti-설치">2. <code>vesti</code> 설치</a></h3>
-<p>터미널에 아래의 코드를 입력하면 된다.</p>
-<pre><code class="language-bash">git clone https://github.com/e0328eric/vesti.git
-cd vesti
-cargo install --path .
-</code></pre>
-<h2><a class="header" href="#windows" id="windows">Windows</a></h2>
-<h3><a class="header" href="#1-cargo-설치-1" id="1-cargo-설치-1">1. <code>cargo</code> 설치</a></h3>
-<p><a href="https://static.rust-lang.org/rustup/dist/i686-pc-windows-gnu/rustup-init.exe">여기</a>를 눌러서 파일을 받고, 이를 설치하면 된다.</p>
-<h3><a class="header" href="#2-vesti-다운로드" id="2-vesti-다운로드">2. <code>vesti</code> 다운로드</a></h3>
-<p>cmd나 powershell에서 다음 코드를 입력하면 된다.</p>
-<pre><code class="language-bash">git clone https://github.com/e0328eric/vesti.git
-cd vesti
-cargo install --path .
+<h2 id="using-tectonic-backend"><a class="header" href="#using-tectonic-backend">Using <code>tectonic</code> backend</a></h2>
+<p>Since <code>tectonic</code> itself requires several dependencies, you must check that all
+of the dependencies are installed. This link has a full list of
+<a href="https://tectonic-typesetting.github.io/book/latest/howto/build-tectonic/external-dep-install.html">dependencies</a>.</p>
+<p>After installing all dependencies, then run this command to install <code>vesti</code> with
+<code>tectonic</code> backend.</p>
+<pre><code class="language-console">$ cargo install --features=tectonic-backend vesti
 </code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
                             <a rel="prev" href="chapter_1.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                        
 
-                        
-                            <a rel="next" href="Chapter3/chapter_3.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="Grammar/chapter_3.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
-                        
 
                         <div style="clear: both"></div>
                     </nav>
@@ -211,49 +210,36 @@ cargo install --path .
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
                     <a rel="prev" href="chapter_1.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                
 
-                
-                    <a rel="next" href="Chapter3/chapter_3.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="Grammar/chapter_3.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
-                
             </nav>
 
         </div>
 
-        
 
-        
 
-        
 
-        
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
-        
 
-        
 
-        
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
-        
 
-        
 
+    </div>
     </body>
 </html>

@@ -1,0 +1,22 @@
+docclass article (twocolumn)
+
+importpkg {
+    amsmath,
+    amsthm,
+    amssymb,
+    array,
+    tikz,
+}
+
+startdoc
+
+This is a plain \LaTeX\ document.
+useenv center {
+    useenv minipage (0.4\textwidth) {
+        The minipage makes a box with width 0.4 textwidth.
+    }
+    \hskip 1pc
+    useenv minipage (0.4\textwidth) {
+        The minipage makes a box with width 0.4 textwidth.
+    }
+}
